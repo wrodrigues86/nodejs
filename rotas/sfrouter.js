@@ -1,8 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const InsertDb = require('../database/dbInsert');
 
 // define o parse como application/json
 router.use(express.json());
+
+// InsertDb();
 
 // define o parse como application/x-www-form-urlencoded
 router.use(express.urlencoded({ extended: false }));
