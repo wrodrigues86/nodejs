@@ -1,16 +1,10 @@
 const connectDb = require('../database/db.js');
-const logapi_model = require("../model/logapi_model");
+const Logapi = require("../model/Logapi");
 require('dotenv').config();
 
-const InsertDb = async (data) => {
+const InsertDb = async (request, response) => {
 
-    let setData = logapi_model(
-        data.originalUrl, 
-        data.method, 
-        new Date().toLocaleDateString(),
-        '',
-        ''
-    );
+    const setData = new Logapi(request.originalUrl, request.method, request.body, response.body);
 
     let db = connectDb.connection;
     db.collection(process.env.DB_COLLECTIONNAME).insertOne(setData, (err, collection) => {
