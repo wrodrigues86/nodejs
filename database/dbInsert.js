@@ -1,13 +1,23 @@
-const InsertDb = require('../database/db.js');
-const databaseName = "mydb";
-const collectionName = "exemplo";
+const connectDb = require('../database/db.js');
+const logapi_model = require("../model/logapi_model");
+require('dotenv').config();
 
-const InsertDb = (data) => {
-    var dbo = connectDb.db(databaseName);
-    dbo.collection(collectionName).insertOne(data, (err, res) => {
-        if (err) throw err;
-        connectDb.close();
+const InsertDb = async (data) => {
+
+    let setData = logapi_model(
+        data.originalUrl, 
+        data.method, 
+        new Date().toLocaleDateString(),
+        '',
+        ''
+    );
+
+    let db = connectDb.connection;
+    db.collection(process.env.DB_COLLECTIONNAME).insertOne(setData, (err, collection) => {
+        if (err) {
+            throw err;
+        }
     });
 };
 
-export { InsertDb };
+module.exports = InsertDb;

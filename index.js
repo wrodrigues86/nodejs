@@ -2,7 +2,7 @@ const express = require("express");
 const app = new express();
 const cors = require("cors");
 
-const sfrouter = require('./rotas/sfrouter.js');
+const api = require('./rotas/api.js');
 
 app.use(cors());
 app.listen(555);
@@ -12,7 +12,7 @@ app.use((req, res, next) => {
     next();
 })
 
-app.use(sfrouter);
+app.use(api);
 
 app.use((req, res, next) => {
     console.log('Time:', Date.now());
