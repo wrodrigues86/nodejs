@@ -11,7 +11,6 @@ module.exports.chamaRequest = async (req, res, next) => {
         }
     }
 
-    // chama o serviço do salesforce
     request(ConnectRestApi(req), async (error, response) => {
         res.setHeader('Content-Type', 'application/json');
         if (error) {

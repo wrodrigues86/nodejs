@@ -1,5 +1,4 @@
 require('dotenv').config();
-const Form = require("../model/LoginSalesforce");
 
 let ConnectRestApi = (request) => {
 
@@ -7,6 +6,7 @@ let ConnectRestApi = (request) => {
     let body = JSON.stringify(request.body);
     let form = {};
     let options = {};
+
     let vheaders = {
         "Authorization": `${request.headers.authorization}`,
         "Content-Type": "application/json",
@@ -14,12 +14,10 @@ let ConnectRestApi = (request) => {
 
     options = { 'method': request.method, 'url': url, 'headers': vheaders, body };
 
-    // se for meotdo POST estive querendo pegar o token de acesso,
-    // então entra no if
     if (request.method == 'POST') {
         if (request.params['pathname'] == 'acesstoken') {
-            url = `${process.env.URL_LOGIN_PROD_SALESFORCE}/services/oauth2/token`;
-            form = new Form();
+            form = request.body;
+            url = `${form.login_url}/services/oauth2/token`;
             vheaders = {
                 "Content-Type": "application/x-www-form-urlencoded",
                 "Content-Type": "application/json",
