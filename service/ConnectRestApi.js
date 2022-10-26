@@ -15,17 +15,17 @@ let ConnectRestApi = (request) => {
     options = { 'method': request.method, 'url': url, 'headers': vheaders, body };
 
     if (request.method == 'POST') {
-        if (request.params['pathname'] == 'acesstoken') {
+        if (request.params['pathname'] == 'token') {
             form = request.body;
             url = `${form.login_url}/services/oauth2/token`;
-            vheaders = {
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Content-Type": "application/json",
-            }
-            options = { 'method': request.method, 'url': url, 'headers': vheaders, form };
+            delete options.headers.Authorization;
+            delete options.body;
+            options.url = url;
+            options.form = form;
         }
     }
 
+    console.log(options);
     return options;
 };
 

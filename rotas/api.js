@@ -6,5 +6,7 @@ const apiController = require('../controller/apiController');
 router.use(express.json());
 // define o parse como application/x-www-form-urlencoded
 router.use(express.urlencoded({ extended: true }));
+
 router.use('/:pathname/', apiController.chamaRequest);
+
 module.exports = router;

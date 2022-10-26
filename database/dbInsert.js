@@ -3,7 +3,6 @@ const Logapi = require("../model/Logapi");
 require('dotenv').config();
 
 const InsertDb = async (request, response) => {
-
     const setData = new Logapi(request.originalUrl, request.method, request.body, response.body);
 
     let db = connectDb.connection;
