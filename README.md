@@ -2,7 +2,7 @@
 localhost:555/token
 
 # Credênciais de acesso
-grant_type = password /n
+grant_type = password <br/>
 client_id = '' /n
 client_secret = '' /n
 username = '' /n
