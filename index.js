@@ -10,9 +10,15 @@ app.listen(porta, () => {
     console.log(`Serviço rodando na porta ${porta}`);
 });
 
-app.use((req, res, next) => {
-    next();
-})
+try {
+    app.use((req, res, next) => {
+        next();
+    })
+} catch (e) {
+    console.log(e);
+    throw e;
+}
+
 
 app.use(api);
 app.use((req, res, next) => {
