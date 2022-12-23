@@ -2,14 +2,14 @@
 localhost:555/token
 
 # Credênciais de acesso
-grant_type = password
-client_id = ''
-client_secret = ''
-username = ''
-password = ''
-login_url = 'https://test.salesforce.com'
+grant_type = password /n
+client_id = '' /n
+client_secret = '' /n
+username = '' /n
+password = '' /n
+login_url = 'https://test.salesforce.com'/n
 
-# Exemploes de requisição Salesforce
+# Exemplos de requisição Salesforce
 # Passar no header o parãmetro "instance_url" com a url retornada na chamada do token
 GET - localhost:555/Conta
 GET - localhost:555/Conta?Id=0038V00002buirFQAQ
