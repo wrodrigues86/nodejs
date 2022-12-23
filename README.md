@@ -16,7 +16,7 @@ login_url = 'https://test.salesforce.com'<br/>
 <b>Passar no header o parãmetro "instance_url" com a url retornada na chamada do token</b>
 <br/><br/>
 GET - localhost:555/Conta <br/>
-GET - localhost:555/Conta?Id=0038V00002buirFQAQ <br/>
+GET - localhost:555/Conta?Id={recordId} <br/>
 POST - localhost:555/Conta <br/>
 PUT - localhost:555/Conta <br/>
-DELETE - localhost:555/Conta?Id=0038V00002buirFQAQ <br/>
+DELETE - localhost:555/Conta?Id={recordId} <br/>
