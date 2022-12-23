@@ -1,4 +1,4 @@
-# Exemploes de requisição de token de acesso Salesforce
+# ExemploS de requisição de token de acesso Salesforce
 localhost:555/token
 
 # Credênciais de acesso
