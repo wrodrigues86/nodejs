@@ -7,6 +7,7 @@ try {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
+console.log(`Mongo rodando em: ${process.env.DB_HOST}`);
 } catch (e) {
   throw e;
 }
